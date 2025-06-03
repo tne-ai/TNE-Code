@@ -15,6 +15,7 @@ import { getInsertContentDescription } from "./insert-content"
 import { getSearchAndReplaceDescription } from "./search-and-replace"
 import { getListCodeDefinitionNamesDescription } from "./list-code-definition-names"
 import { getBrowserActionDescription } from "./browser-action"
+import { getRunGraphaiDescription } from "./run-graphai"
 import { getAskFollowupQuestionDescription } from "./ask-followup-question"
 import { getAttemptCompletionDescription } from "./attempt-completion"
 import { getUseMcpToolDescription } from "./use-mcp-tool"
@@ -34,6 +35,7 @@ const toolDescriptionMap: Record<string, (args: ToolArgs) => string | undefined>
 	list_files: (args) => getListFilesDescription(args),
 	list_code_definition_names: (args) => getListCodeDefinitionNamesDescription(args),
 	browser_action: (args) => getBrowserActionDescription(args),
+	run_graphai: (args) => getRunGraphaiDescription(args),
 	ask_followup_question: () => getAskFollowupQuestionDescription(),
 	attempt_completion: (args) => getAttemptCompletionDescription(args),
 	use_mcp_tool: (args) => getUseMcpToolDescription(args),
@@ -133,6 +135,7 @@ export {
 	getListFilesDescription,
 	getListCodeDefinitionNamesDescription,
 	getBrowserActionDescription,
+	getRunGraphaiDescription,
 	getAskFollowupQuestionDescription,
 	getAttemptCompletionDescription,
 	getUseMcpToolDescription,

@@ -18,6 +18,7 @@ import { listCodeDefinitionNamesTool } from "../tools/listCodeDefinitionNamesToo
 import { searchFilesTool } from "../tools/searchFilesTool"
 import { browserActionTool } from "../tools/browserActionTool"
 import { executeCommandTool } from "../tools/executeCommandTool"
+import { runGraphaiTool } from "../tools/runGraphaiTool"
 import { useMcpToolTool } from "../tools/useMcpToolTool"
 import { accessMcpResourceTool } from "../tools/accessMcpResourceTool"
 import { askFollowupQuestionTool } from "../tools/askFollowupQuestionTool"
@@ -186,6 +187,8 @@ export async function presentAssistantMessage(cline: Task) {
 						return `[${block.name} to '${block.params.mode_slug}'${block.params.reason ? ` because: ${block.params.reason}` : ""}]`
 					case "codebase_search": // Add case for the new tool
 						return `[${block.name} for '${block.params.query}']`
+					case "run_graphai":
+						return `[${block.name} for '${block.params.path}']`
 					case "new_task": {
 						const mode = block.params.mode ?? defaultModeSlug
 						const message = block.params.message ?? "(no message)"
@@ -424,6 +427,9 @@ export async function presentAssistantMessage(cline: Task) {
 					break
 				case "execute_command":
 					await executeCommandTool(cline, block, askApproval, handleError, pushToolResult, removeClosingTag)
+					break
+				case "run_graphai":
+					await runGraphaiTool(cline, block, askApproval, handleError, pushToolResult, removeClosingTag)
 					break
 				case "use_mcp_tool":
 					await useMcpToolTool(cline, block, askApproval, handleError, pushToolResult, removeClosingTag)

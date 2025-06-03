@@ -1,0 +1,9 @@
+version: 0.5
+nodes:
+  chatHistory:
+    value: []
+  llm:
+    agent: openAIAgent
+    inputs:
+      messages: ":chatHistory"
+    isResult: true
