@@ -24,6 +24,7 @@ import {
 	getModesSection,
 	addCustomInstructions,
 	markdownFormattingSection,
+	getMemoryBankStrategySection,
 } from "./sections"
 
 async function generatePrompt(
@@ -98,6 +99,8 @@ ${getRulesSection(cwd, supportsComputerUse, effectiveDiffStrategy, codeIndexMana
 ${getSystemInfoSection(cwd)}
 
 ${getObjectiveSection(codeIndexManager, experiments)}
+
+${getMemoryBankStrategySection()}
 
 ${await addCustomInstructions(baseInstructions, globalCustomInstructions || "", cwd, mode, { language: language ?? formatLanguage(vscode.env.language), rooIgnoreInstructions })}`
 

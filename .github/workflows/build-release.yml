@@ -1,0 +1,40 @@
+name: Build and Attach to Release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  build-and-attach:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required for uploading release assets
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node-pnpm
+        with:
+          skip-checkout: 'true'
+          
+      - name: Create .env file
+        run: echo "POSTHOG_API_KEY=${{ secrets.POSTHOG_API_KEY }}" >> .env
+        
+      - name: Build and Package Extension
+        run: |
+          pnpm bundle
+          pnpm vsix
+          
+      - name: Get package version
+        id: version
+        run: echo "version=$(node -p "require('./src/package.json').version")" >> $GITHUB_OUTPUT
+        
+      - name: Upload VSIX to Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload ${{ github.event.release.tag_name }} \
+            bin/tne-code-${{ steps.version.outputs.version }}.vsix \
+            --clobber

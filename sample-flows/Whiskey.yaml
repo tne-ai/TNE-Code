@@ -1,0 +1,68 @@
+version: 0.5
+nodes:
+  imageData1:
+    agent: s3FileAgent
+    params:
+      fileName: image input 1.jpg
+      bucket: bp-authoring-files
+      region: us-west-2
+      uid: "london-demo-1-13"
+    inputs: {}
+  imageData2:
+    agent: s3FileAgent
+    params:
+      fileName: image input 2.jpg
+      bucket: bp-authoring-files
+      region: us-west-2
+      uid: "london-demo-1-13"
+    inputs: {}
+  imageData3:
+    agent: s3FileAgent
+    params:
+      fileName: image input 3.jpg
+      bucket: bp-authoring-files
+      region: us-west-2
+      uid: "london-demo-1-13"
+    inputs: {}
+  imageExtractor:
+    agent: mapAgent
+    inputs:
+      rows:
+        - ":imageData1.imageData"
+        - ":imageData2.imageData"
+        - ":imageData3.imageData"
+    params: {}
+    graph:
+      version: 0.5
+      nodes:
+        imageExtraction:
+          agent: openAIAgent
+          inputs:
+            messages:
+              - role: user
+                content:
+                  - type: image_url
+                    image_url:
+                      url: "${:row}"
+            system: From the given image(s), extract the tabular data in a CSV format.
+          console: true
+        filterExtraction:
+          agent: copyAgent
+          inputs:
+            text: ":imageExtraction.text"
+          params:
+            namedKey: text
+          isResult: true
+          console: true
+  aggregateImageExtraction:
+    agent: jsonParserAgent
+    inputs:
+      data: ":imageExtractor"
+    console: true
+  synthesizeLlm:
+    agent: openAIAgent
+    inputs:
+      prompt: ":aggregateImageExtraction.text"
+      system: From the given list, synthesize all tabular data into one or more tables
+    isResult: true
+    console: true
