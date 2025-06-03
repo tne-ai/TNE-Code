@@ -1,0 +1,151 @@
+version: 0.5
+nodes:
+  chatHistory:
+    value: []
+
+  llmEngine:
+    value: ""
+
+  modelDispatcher:
+    agent: ":llmEngine"
+    inputs:
+      messages: ":chatHistory"
+      system:
+        - >-
+          You are a LLM model dispatcher that routes the user request to the appropriate LLM, based off of user sentiment and the complexity of the request. Classify the user query into one of `small`, `medium`, and `large` based off of both the complexity of question they're asking (queries that require complex reasoning are `large`, and queries that do not require much thinking are `small`. If the chat history indicates that the user is unsatisfied with the LLM performance, use this in your thinking and consider weighting towards `large` in these cases to give the user a better experience. Using the provided mappings, fill the JSON schema with the corresponding model name and base URL.
+        - "small  -  model_name: llama3.2:3b    baseUrl: http://127.0.0.1:11434/v1"
+        - "medium -  model_name: gpt-4o         baseUrl: https://api.openai.com/v1"
+        - "large  -  model_name: o1             baseUrl: https://api.openai.com/v1"
+      response_format:
+        type: json_schema
+        json_schema:
+          name: model_information
+          schema:
+            type: object
+            properties:
+              model:
+                type: string
+              baseUrl:
+                type: string
+            required: ["model", "baseUrl"]
+            additionalProperties: false
+          strict: true
+
+  modelDetails:
+    agent: jsonParserAgent
+    inputs:
+      text: ":modelDispatcher.text"
+    console: true
+
+  llm:
+    agent: ":llmEngine"
+    inputs:
+      messages: ":chatHistory"
+    params:
+      model: ":modelDetails.model"
+      baseURL: ":modelDetails.baseUrl"
+    console: true
+    isResult: true
+
+  juryDispatcher:
+    agent: ":llmEngine"
+    inputs:
+      messages: ":chatHistory"
+      system:
+        - >-
+          Your job is to examine the chat history, user query, and any reasoning steps (chain-of-thought, code, etc.) that are given to you, and output the correct models that should be use to assess their accuracy and validity.
+        - >-
+          Output one or more models that should be used to evaluate the results from the list below.
+        - >-
+          For example, if the user query or question involves math or mathematical calculations, include the `math` model in your output.
+        - >-
+          For complex retrieval or reasoning, include `reasoning`, `code` for code analysis, and so on and so forth.
+        - "pop-culture      -  model_name: gpt-4o-mini   baseUrl: https://api.openai.com/v1"
+        - "math             -  model_name: o1            baseUrl: https://api.openai.com/v1"
+        - "reasoning        -  model_name: o3-mini       baseUrl: https://api.openai.com/v1"
+        - "code             -  model_name: o3-mini       baseUrl: https://api.openai.com/v1"
+        - "ANSWER TO EVALUATE\n\n"
+        - ":llm.text"
+      response_format:
+        type: json_schema
+        json_schema:
+          name: model_information
+          schema:
+            type: object
+            properties:
+              models:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                    baseUrl:
+                      type: string
+                    domain:
+                      type: string
+                  required: ["model", "baseUrl", "domain"]
+                  additionalProperties: false
+            required: ["models"]
+            additionalProperties: false
+          strict: true
+
+  juryDetails:
+    agent: jsonParserAgent
+    inputs:
+      text: ":juryDispatcher.text"
+    console: true
+
+  juryEvaluation:
+    agent: nestedAgent
+    inputs:
+      llmEngine: ":llmEngine"
+      juryModels: ":juryDetails.models"
+      llm: ":llm"
+    graph:
+      version: 0.5
+      loop:
+        while: ":juryModels"
+      nodes:
+        juryModels:
+          value: []
+          update: ":shift.array"
+        results:
+          value: []
+          update: ":reducer.array"
+          isResult: true
+        shift:
+          agent: shiftAgent
+          inputs:
+            array: ":juryModels"
+        jurist:
+          agent: ":llmEngine"
+          inputs:
+            prompt: ":llm.text"
+            system: >-
+              You are an expert in ${:shift.item.domain}. Using your expertise, grade the given input for accuracy and correctness on a scale of 1-10 and explain your reasoning. In your response, state your domain of expertise.
+          params:
+            model: ":shift.item.model"
+            baseURL: ":shift.item.baseUrl"
+        reducer:
+          agent: pushAgent
+          inputs:
+            array: ":results"
+            item: ":jurist.text"
+
+  extractResults:
+    agent: arrayJoinAgent
+    inputs:
+      array: ":juryEvaluation.results"
+    params:
+      separator: "\n\n"
+    console: true
+    isResult: true
+
+  generateReport:
+    agent: ":llmEngine"
+    inputs:
+      prompt: ":extractResults.text"
+      system: >-
+        Given the list of accuracy evaluations, generate a report complete with a descriptive title, headings, and display the contents of the report to the user.
+    isResult: true

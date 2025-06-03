@@ -1,6 +1,6 @@
 {
-	"name": "@roo-code/evals",
-	"description": "Roo Code evals.",
+	"name": "@tne-code/evals",
+	"description": "TNE-Code evals.",
 	"version": "0.0.0",
 	"type": "module",
 	"exports": "./src/index.ts",
@@ -25,8 +25,8 @@
 		"services:start": "docker compose up -d db redis"
 	},
 	"dependencies": {
-		"@roo-code/ipc": "workspace:^",
-		"@roo-code/types": "workspace:^",
+		"@tne-code/ipc": "workspace:^",
+		"@tne-code/types": "workspace:^",
 		"better-sqlite3": "^11.10.0",
 		"cmd-ts": "^0.13.0",
 		"drizzle-orm": "^0.44.1",
@@ -41,8 +41,8 @@
 		"zod": "^3.24.2"
 	},
 	"devDependencies": {
-		"@roo-code/config-eslint": "workspace:^",
-		"@roo-code/config-typescript": "workspace:^",
+		"@tne-code/config-eslint": "workspace:^",
+		"@tne-code/config-typescript": "workspace:^",
 		"@types/node": "^22.15.20",
 		"@types/node-ipc": "^9.2.3",
 		"@types/ps-tree": "^1.1.6",
