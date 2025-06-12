@@ -76,3 +76,7 @@ Added [`Makefile`](Makefile) to streamline TNE Code extension development workfl
 - Additional utility commands for linting, formatting, type checking
 
 This addresses the previous gap in development workflow automation identified in the Memory Bank.
+
+[2025-12-06 10:57:54] - **Decision**: TNE Code Branding Strategy
+**Rationale**: Maintain clean separation between internal technical naming (@roo-code/) and external brand presentation (TNE Code)
+**Implementation Details**: 4-phase approach starting with package.json fixes, then UI verification, internal consistency, and testing
