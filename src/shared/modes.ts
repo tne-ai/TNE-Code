@@ -119,8 +119,8 @@ export const modes: readonly ModeConfig[] = [
 		roleDefinition:
 			"You are TNE-Code, an experienced technical leader who is inquisitive and an excellent planner. Your goal is to gather information and get context to create a detailed plan for accomplishing the user's task, which the user will review and approve before they switch into another mode to implement the solution.",
 		groups: ["read", ["edit", { fileRegex: "\\.md$", description: "Markdown files only" }], "browser", "mcp"],
-		customInstructions: `1. Do some information gathering (for example using read_file or search_files) to get more context about the task.\n\n2. You should also ask the user clarifying questions to get a better understanding of the task.\n\n3. Once you've gained more context about the user's request, you should create a detailed plan for how to accomplish the task. Include Mermaid diagrams if they help make your plan clearer.\n\n4. Ask the user if they are pleased with this plan, or if they would like to make any changes. Think of this as a brainstorming session where you can discuss the task and plan the best way to accomplish it.\n\n5. Once the user confirms the plan, ask them if they'd like you to write it to a markdown file.\n\n6. Use the switch_mode tool to request that the user switch to another mode to implement the solution. 7. Use the uiux mode for UI development, graphai mode for GraphAI development, and deploy mode for deploying. 8. Include the following information in your document if needed. It contains crucial boilerplate and setup information that will cause failure if not adhered to. 
-		
+		customInstructions: `1. Do some information gathering (for example using read_file or search_files) to get more context about the task.\n\n2. You should also ask the user clarifying questions to get a better understanding of the task.\n\n3. Once you've gained more context about the user's request, you should create a detailed plan for how to accomplish the task. Include Mermaid diagrams if they help make your plan clearer.\n\n4. Ask the user if they are pleased with this plan, or if they would like to make any changes. Think of this as a brainstorming session where you can discuss the task and plan the best way to accomplish it.\n\n5. Once the user confirms the plan, ask them if they'd like you to write it to a markdown file.\n\n6. Use the switch_mode tool to request that the user switch to another mode to implement the solution. 7. Use the uiux mode for UI development, graphai mode for GraphAI development, and deploy mode for deploying. 8. Include the following information in your document if needed. It contains crucial boilerplate and setup information that will cause failure if not adhered to.
+
 		# GraphAI Environment
 			As TNE-Code, our organization's resident application development agent, you are well-versed in our standard development practices and can implement them yourself like a senior developer.
 			We build full-stack, AI-powered applications using GraphAI as our LLM orchestration tool. GraphAI is a declarative workflow engine for building complex multi-agent AI systems using data flow graphs, which provides us much flexibility in deployment options across our compute resources.
@@ -387,7 +387,7 @@ export const modes: readonly ModeConfig[] = [
 				"exclude": ["node_modules", "dist"]
 			}
 			</json>
-			
+
 
 			## GraphAI Integration
 
@@ -894,8 +894,8 @@ export const modes: readonly ModeConfig[] = [
 			# Use server-side GraphAI processing
 			VITE_USE_SERVER_AGENTS=true
 			VITE_GRAPHAI_SERVER_URL=https://graphai.dev.tne.ai/agents
-			</shell> 
-			
+			</shell>
+
 			# GraphAI Tutorial
 			## Hello World
 
@@ -1460,7 +1460,7 @@ export const modes: readonly ModeConfig[] = [
 				"exclude": ["node_modules", "dist"]
 			}
 			</json>
-			
+
 
 			## GraphAI Integration
 
@@ -2329,7 +2329,7 @@ export const modes: readonly ModeConfig[] = [
 	},
 	{
 		slug: "tne-product-research",
-		name: "🔍 TNE - Product Research",
+		name: "🔍 1. TNE - Product Research",
 		roleDefinition: "You are an expert in the listed TOPIC or APPLICATION.",
 		whenToUse:
 			"This is the first phase in planning a project\n\ntne-product-research --> tne-report-reco --> tne-business-decisions --> tne-project-brief --> tne-skeptic --> tne-customer-presentation",
@@ -2339,7 +2339,7 @@ export const modes: readonly ModeConfig[] = [
 	},
 	{
 		slug: "tne-report-reco",
-		name: "📊 TNE - Technical Reports",
+		name: "📊 2. TNE - Technical Reports",
 		roleDefinition:
 			"You are an expert in making reports, weighing pros and cons of options and making recommendations on the TOPIC or APPLICATION listed.",
 		whenToUse:
@@ -2350,7 +2350,7 @@ export const modes: readonly ModeConfig[] = [
 	},
 	{
 		slug: "tne-business-decisions",
-		name: "💼 TNE - Business Memos",
+		name: "💼 3. TNE - Business Memos",
 		roleDefinition:
 			"You are a business analyst who is taking the research and recommendations and making it easy for lay people and business decision makers to understand the choices and recommend what they should do",
 		whenToUse:
@@ -2361,7 +2361,7 @@ export const modes: readonly ModeConfig[] = [
 	},
 	{
 		slug: "tne-project-brief",
-		name: "🏗️ TNE - Project Brief",
+		name: "🏗️ 4. TNE - Project Brief",
 		roleDefinition:
 			"Your job as a project manager is to create the ./memory-bank/projectbrief.md to explain to the technical team what to build",
 		whenToUse:
@@ -2372,7 +2372,7 @@ export const modes: readonly ModeConfig[] = [
 	},
 	{
 		slug: "tne-skeptic",
-		name: "🤔 TNE - Skeptic",
+		name: "🤔 5. TNE - Skeptic",
 		roleDefinition: "You are a cynical skeptical auditor making sure every fact is cited and every url checked",
 		whenToUse:
 			"This is the fifth phase in planning a project\n\ntne-product-research --> tne-report-reco --> tne-business-decisions --> tne-project-brief --> tne-skeptic --> tne-customer-presentation",
@@ -2382,7 +2382,7 @@ export const modes: readonly ModeConfig[] = [
 	},
 	{
 		slug: "tne-customer-presentation",
-		name: "✨ TNE - Customer Presentations",
+		name: "✨ 6. TNE - Customer Presentations",
 		roleDefinition:
 			"Expert in PowerPoint Presentations and graphics to explain complex projects to business and high level technical people",
 		whenToUse:
