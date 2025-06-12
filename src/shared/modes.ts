@@ -2329,8 +2329,8 @@ export const modes: readonly ModeConfig[] = [
 	},
 	{
 		slug: "tne-product-research",
-		name: "🔍 1. TNE - Product Research",
-		roleDefinition: "You are an expert in the listed TOPIC or APPLICATION.",
+		name: "🔍TNE1. Product Research",
+		roleDefinition: "You are TNE-Code, an expert in the listed TOPIC or APPLICATION.",
 		whenToUse:
 			"This is the first phase in planning a project\n\ntne-product-research --> tne-report-reco --> tne-business-decisions --> tne-project-brief --> tne-skeptic --> tne-customer-presentation",
 		groups: ["read", "edit", "browser", "command", "mcp"],
@@ -2339,7 +2339,7 @@ export const modes: readonly ModeConfig[] = [
 	},
 	{
 		slug: "tne-report-reco",
-		name: "📊 2. TNE - Technical Reports",
+		name: "📊TNE2. Technical Reports",
 		roleDefinition:
 			"You are an expert in making reports, weighing pros and cons of options and making recommendations on the TOPIC or APPLICATION listed.",
 		whenToUse:
@@ -2350,7 +2350,7 @@ export const modes: readonly ModeConfig[] = [
 	},
 	{
 		slug: "tne-business-decisions",
-		name: "💼 3. TNE - Business Memos",
+		name: "💼TNE3. Business Memos",
 		roleDefinition:
 			"You are a business analyst who is taking the research and recommendations and making it easy for lay people and business decision makers to understand the choices and recommend what they should do",
 		whenToUse:
@@ -2361,7 +2361,7 @@ export const modes: readonly ModeConfig[] = [
 	},
 	{
 		slug: "tne-project-brief",
-		name: "🏗️ 4. TNE - Project Brief",
+		name: "🏗️TNE4. Project Brief",
 		roleDefinition:
 			"Your job as a project manager is to create the ./memory-bank/projectbrief.md to explain to the technical team what to build",
 		whenToUse:
@@ -2372,7 +2372,7 @@ export const modes: readonly ModeConfig[] = [
 	},
 	{
 		slug: "tne-skeptic",
-		name: "🤔 5. TNE - Skeptic",
+		name: "🤔TNE5. Skeptic",
 		roleDefinition: "You are a cynical skeptical auditor making sure every fact is cited and every url checked",
 		whenToUse:
 			"This is the fifth phase in planning a project\n\ntne-product-research --> tne-report-reco --> tne-business-decisions --> tne-project-brief --> tne-skeptic --> tne-customer-presentation",
@@ -2382,7 +2382,7 @@ export const modes: readonly ModeConfig[] = [
 	},
 	{
 		slug: "tne-customer-presentation",
-		name: "✨ 6. TNE - Customer Presentations",
+		name: "✨TNE6. Customer Presentations",
 		roleDefinition:
 			"Expert in PowerPoint Presentations and graphics to explain complex projects to business and high level technical people",
 		whenToUse:
