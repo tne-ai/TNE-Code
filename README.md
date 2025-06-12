@@ -12,7 +12,7 @@ English • [Català](locales/ca/README.md) • [Deutsch](locales/de/README.md) 
 </div>
 <br>
 <div align="center">
-  <h1>Roo Code (prev. Roo Cline)</h1>
+  <h1>TNE Code</h1>
   <p align="center">
   <img src="https://media.githubusercontent.com/media/RooCodeInc/Roo-Code/main/src/assets/docs/demo.gif" width="100%" />
   </p>
@@ -34,7 +34,7 @@ English • [Català](locales/ca/README.md) • [Deutsch](locales/de/README.md) 
 
 </div>
 
-**Roo Code** is an AI-powered **autonomous coding agent** that lives in your editor. It can:
+**TNE Code** is an AI-powered **autonomous coding agent** that lives in your editor. It can:
 
 - Communicate in natural language
 - Read and write files directly in your workspace
@@ -43,15 +43,15 @@ English • [Català](locales/ca/README.md) • [Deutsch](locales/de/README.md) 
 - Integrate with any OpenAI-compatible or custom API/model
 - Adapt its “personality” and capabilities through **Custom Modes**
 
-Whether you’re seeking a flexible coding partner, a system architect, or specialized roles like a QA engineer or product manager, Roo Code can help you build software more efficiently.
+Whether you're seeking a flexible coding partner, a system architect, or specialized roles like a QA engineer or product manager, TNE Code can help you build software more efficiently.
 
 Check out the [CHANGELOG](CHANGELOG.md) for detailed updates and fixes.
 
 ---
 
-## 🎉 Roo Code 3.19 Released
+## 🎉 TNE Code 3.19 Released
 
-Roo Code 3.19 brings intelligent context management improvements and enhanced user experience!
+TNE Code 3.19 brings intelligent context management improvements and enhanced user experience!
 
 - **Intelligent Context Condensing Enabled by Default** - Context condensing is now enabled by default with configurable settings for when automatic condensing happens.
 - **Manual Condensing Button** - New button in the task header allows you to manually trigger context condensing at any time.
@@ -59,7 +59,7 @@ Roo Code 3.19 brings intelligent context management improvements and enhanced us
 
 ---
 
-## What Can Roo Code Do?
+## What Can TNE Code Do?
 
 - 🚀 **Generate Code** from natural language descriptions
 - 🔧 **Refactor & Debug** existing code
@@ -70,7 +70,7 @@ Roo Code 3.19 brings intelligent context management improvements and enhanced us
 
 ## Quick Start
 
-1. [Install Roo Code](https://docs.roocode.com/getting-started/installing)
+1. [Install TNE Code](https://docs.roocode.com/getting-started/installing)
 2. [Connect Your AI Provider](https://docs.roocode.com/getting-started/connecting-api-provider)
 3. [Try Your First Task](https://docs.roocode.com/getting-started/your-first-task)
 
@@ -78,7 +78,7 @@ Roo Code 3.19 brings intelligent context management improvements and enhanced us
 
 ### Multiple Modes
 
-Roo Code adapts to your needs with specialized [modes](https://docs.roocode.com/basic-usage/using-modes):
+TNE Code adapts to your needs with specialized [modes](https://docs.roocode.com/basic-usage/using-modes):
 
 - **Code Mode:** For general-purpose coding tasks
 - **Architect Mode:** For planning and technical leadership
@@ -88,18 +88,18 @@ Roo Code adapts to your needs with specialized [modes](https://docs.roocode.com/
 
 ### Smart Tools
 
-Roo Code comes with powerful [tools](https://docs.roocode.com/basic-usage/how-tools-work) that can:
+TNE Code comes with powerful [tools](https://docs.roocode.com/basic-usage/how-tools-work) that can:
 
 - Read and write files in your project
 - Execute commands in your VS Code terminal
 - Control a web browser
 - Use external tools via [MCP (Model Context Protocol)](https://docs.roocode.com/advanced-usage/mcp)
 
-MCP extends Roo Code's capabilities by allowing you to add unlimited custom tools. Integrate with external APIs, connect to databases, or create specialized development tools - MCP provides the framework to expand Roo Code's functionality to meet your specific needs.
+MCP extends TNE Code's capabilities by allowing you to add unlimited custom tools. Integrate with external APIs, connect to databases, or create specialized development tools - MCP provides the framework to expand TNE Code's functionality to meet your specific needs.
 
 ### Customization
 
-Make Roo Code work your way with:
+Make TNE Code work your way with:
 
 - [Custom Instructions](https://docs.roocode.com/advanced-usage/custom-instructions) for personalized behavior
 - [Custom Modes](https://docs.roocode.com/advanced-usage/custom-modes) for specialized tasks
@@ -124,35 +124,75 @@ Make Roo Code work your way with:
 
 ## Local Setup & Development
 
+### Quick Start with Makefile
+
 1. **Clone** the repo:
 
 ```sh
 git clone https://github.com/RooCodeInc/Roo-Code.git
+cd Roo-Code
 ```
 
 2. **Install dependencies**:
 
 ```sh
-pnpm install
+make install
 ```
 
-3. **Run the extension**:
-
-Press `F5` (or **Run** → **Start Debugging**) in VSCode to open a new window with Roo Code running.
-
-Changes to the webview will appear immediately. Changes to the core extension will require a restart of the extension host.
-
-Alternatively you can build a .vsix and install it directly in VSCode:
+3. **Start development**:
 
 ```sh
-pnpm vsix
+make dev        # Start file watching for development
+make run        # Launch VSCode extension host for testing
 ```
 
-A `.vsix` file will appear in the `bin/` directory which can be installed with:
+### Available Make Commands
+
+Run `make help` to see all available commands:
 
 ```sh
-code --install-extension bin/roo-cline-<version>.vsix
+make help       # Show all available commands
+make install    # Install dependencies and setup environment
+make dev        # Start development with file watching
+make run        # Launch VSCode extension host for testing
+make test       # Run all tests across workspaces
+make lint       # Run linting across all workspaces
+make format     # Format code with Prettier
+make build      # Build all packages and extension
+make vsix       # Create VSCode extension package (.vsix file)
+make clean      # Clean all build artifacts
 ```
+
+### Alternative Development Methods
+
+**VSCode Debug Method**: Press `F5` (or **Run** → **Start Debugging**) in VSCode to open a new window with TNE Code running.
+
+**Manual Build**: Changes to the webview will appear immediately. Changes to the core extension will require a restart of the extension host.
+
+**Install from VSIX**: Build and install the extension directly:
+
+```sh
+make vsix
+code --install-extension bin/tne-code-*.vsix
+```
+
+### Environment Setup
+
+- **Environment Variables**: Create `.env` files in workspaces or use `direnv` with `.envrc`
+- **Security**: Consider using 1Password CLI: `op run --env-file=.env -- make dev`
+- **Vector Database**: Qdrant setup required if using code indexing features
+- **AI Providers**: Configure API keys in VSCode settings
+- **MCP Servers**: Optional external integrations
+
+### Development Architecture
+
+This is a **monorepo** using pnpm workspaces and Turborepo:
+
+- **`src/`** - Main VSCode extension (TypeScript)
+- **`webview-ui/`** - React-based user interface
+- **`packages/`** - Shared TypeScript types and utilities
+- **`apps/`** - Additional applications
+- **`docs/`** - Project documentation
 
 We use [changesets](https://github.com/changesets/changesets) for versioning and publishing. Check our `CHANGELOG.md` for release notes.
 
@@ -160,7 +200,7 @@ We use [changesets](https://github.com/changesets/changesets) for versioning and
 
 ## Disclaimer
 
-**Please note** that Roo Code, Inc does **not** make any representations or warranties regarding any code, models, or other tools provided or made available in connection with Roo Code, any associated third-party tools, or any resulting outputs. You assume **all risks** associated with the use of any such tools or outputs; such tools are provided on an **"AS IS"** and **"AS AVAILABLE"** basis. Such risks may include, without limitation, intellectual property infringement, cyber vulnerabilities or attacks, bias, inaccuracies, errors, defects, viruses, downtime, property loss or damage, and/or personal injury. You are solely responsible for your use of any such tools or outputs (including, without limitation, the legality, appropriateness, and results thereof).
+**Please note** that TNE Code does **not** make any representations or warranties regarding any code, models, or other tools provided or made available in connection with TNE Code, any associated third-party tools, or any resulting outputs. You assume **all risks** associated with the use of any such tools or outputs; such tools are provided on an **"AS IS"** and **"AS AVAILABLE"** basis. Such risks may include, without limitation, intellectual property infringement, cyber vulnerabilities or attacks, bias, inaccuracies, errors, defects, viruses, downtime, property loss or damage, and/or personal injury. You are solely responsible for your use of any such tools or outputs (including, without limitation, the legality, appropriateness, and results thereof).
 
 ---
 
@@ -172,7 +212,7 @@ We love community contributions! Get started by reading our [CONTRIBUTING.md](CO
 
 ## Contributors
 
-Thanks to all our contributors who have helped make Roo Code better!
+Thanks to all our contributors who have helped make TNE Code better!
 
 <!-- START CONTRIBUTORS SECTION - AUTO-GENERATED, DO NOT EDIT MANUALLY -->
 
@@ -216,4 +256,10 @@ Thanks to all our contributors who have helped make Roo Code better!
 
 ---
 
-**Enjoy Roo Code!** Whether you keep it on a short leash or let it roam autonomously, we can’t wait to see what you build. If you have questions or feature ideas, drop by our [Reddit community](https://www.reddit.com/r/RooCode/) or [Discord](https://discord.gg/roocode). Happy coding!
+## Attribution
+
+TNE Code is a fork of [Roo Code](https://github.com/RooCodeInc/Roo-Code), originally developed by Roo Code, Inc. We extend our gratitude to the original developers and contributors for their excellent work.
+
+---
+
+**Enjoy TNE Code!** Whether you keep it on a short leash or let it roam autonomously, we can't wait to see what you build. If you have questions or feature ideas, drop by our [Reddit community](https://www.reddit.com/r/RooCode/) or [Discord](https://discord.gg/roocode). Happy coding!
