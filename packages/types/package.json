@@ -1,5 +1,5 @@
 {
-	"name": "@tne-code/types",
+	"name": "@roo-code/types",
 	"version": "0.0.0",
 	"type": "module",
 	"main": "./dist/index.cjs",
@@ -26,8 +26,8 @@
 		"zod": "^3.24.2"
 	},
 	"devDependencies": {
-		"@tne-code/config-eslint": "workspace:^",
-		"@tne-code/config-typescript": "workspace:^",
+		"@roo-code/config-eslint": "workspace:^",
+		"@roo-code/config-typescript": "workspace:^",
 		"@types/node": "^22.15.20",
 		"tsup": "^8.3.5",
 		"vitest": "^3.1.3"

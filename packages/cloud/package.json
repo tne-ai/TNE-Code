@@ -1,5 +1,5 @@
 {
-	"name": "@tne-code/cloud",
+	"name": "@roo-code/cloud",
 	"description": "TNE-Code Cloud VSCode integration.",
 	"version": "0.0.0",
 	"type": "module",
@@ -11,14 +11,14 @@
 		"clean": "rimraf dist .turbo"
 	},
 	"dependencies": {
-		"@tne-code/telemetry": "workspace:^",
-		"@tne-code/types": "workspace:^",
+		"@roo-code/telemetry": "workspace:^",
+		"@roo-code/types": "workspace:^",
 		"axios": "^1.7.4",
 		"zod": "^3.24.2"
 	},
 	"devDependencies": {
-		"@tne-code/config-eslint": "workspace:^",
-		"@tne-code/config-typescript": "workspace:^",
+		"@roo-code/config-eslint": "workspace:^",
+		"@roo-code/config-typescript": "workspace:^",
 		"@types/node": "^22.15.20",
 		"@types/vscode": "^1.84.0",
 		"vitest": "^3.1.3"
