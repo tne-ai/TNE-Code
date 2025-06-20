@@ -2,7 +2,7 @@
 
 import { ExtensionContext } from "vscode"
 
-import type { ProviderSettings } from "@roo-code/types"
+import type { ProviderSettings } from "@tne-code/types"
 
 import { ProviderSettingsManager, ProviderProfiles } from "../ProviderSettingsManager"
 

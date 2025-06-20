@@ -1,7 +1,7 @@
 import OpenAI from "openai"
 import { Anthropic } from "@anthropic-ai/sdk"
 
-import { xaiDefaultModelId, xaiModels } from "@roo-code/types"
+import { xaiDefaultModelId, xaiModels } from "@tne-code/types"
 
 import { XAIHandler } from "../xai"
 

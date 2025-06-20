@@ -1,6 +1,6 @@
 import * as vscode from "vscode"
 
-import { CodeActionName, CodeActionId } from "@roo-code/types"
+import { CodeActionName, CodeActionId } from "@tne-code/types"
 
 import { getCodeActionCommand } from "../utils/commands"
 import { EditorUtils } from "../integrations/editor/EditorUtils"

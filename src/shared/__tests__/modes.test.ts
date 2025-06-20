@@ -1,6 +1,6 @@
 // npx jest src/shared/__tests__/modes.test.ts
 
-import type { ModeConfig, PromptComponent } from "@roo-code/types"
+import type { ModeConfig, PromptComponent } from "@tne-code/types"
 
 // Mock setup must come before imports
 jest.mock("vscode")

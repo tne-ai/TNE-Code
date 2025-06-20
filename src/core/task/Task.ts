@@ -20,9 +20,9 @@ import {
 	type ToolProgressStatus,
 	type HistoryItem,
 	TelemetryEventName,
-} from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
-import { CloudService } from "@roo-code/cloud"
+} from "@tne-code/types"
+import { TelemetryService } from "@tne-code/telemetry"
+import { CloudService } from "@tne-code/cloud"
 
 // api
 import { ApiHandler, ApiHandlerCreateMessageMetadata, buildApiHandler } from "../../api"

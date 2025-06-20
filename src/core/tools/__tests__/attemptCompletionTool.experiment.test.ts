@@ -8,7 +8,7 @@ jest.mock("../executeCommandTool", () => ({
 	executeCommand: jest.fn(),
 }))
 
-jest.mock("@roo-code/telemetry", () => ({
+jest.mock("@tne-code/telemetry", () => ({
 	TelemetryService: {
 		instance: {
 			captureTaskCompleted: jest.fn(),

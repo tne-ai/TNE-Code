@@ -3,9 +3,9 @@ import fs from "fs/promises"
 import pWaitFor from "p-wait-for"
 import * as vscode from "vscode"
 
-import { type Language, type ProviderSettings, type GlobalState, TelemetryEventName } from "@roo-code/types"
-import { CloudService } from "@roo-code/cloud"
-import { TelemetryService } from "@roo-code/telemetry"
+import { type Language, type ProviderSettings, type GlobalState, TelemetryEventName } from "@tne-code/types"
+import { CloudService } from "@tne-code/cloud"
+import { TelemetryService } from "@tne-code/telemetry"
 
 import { ClineProvider } from "./ClineProvider"
 import { changeLanguage, t } from "../../i18n"
