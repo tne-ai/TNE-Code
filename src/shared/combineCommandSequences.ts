@@ -1,4 +1,4 @@
-import { ClineMessage } from "@roo-code/types"
+import type { ClineMessage } from "@tne-code/types"
 import { safeJsonParse } from "./safeJsonParse"
 
 export const COMMAND_OUTPUT_STRING = "Output:"

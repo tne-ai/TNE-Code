@@ -1,7 +1,7 @@
 import axios from "axios"
 import * as vscode from "vscode"
 
-import { shareResponseSchema } from "@roo-code/types"
+import { shareResponseSchema } from "@tne-code/types"
 import { getRooCodeApiUrl } from "./Config"
 import type { AuthService } from "./AuthService"
 import type { SettingsService } from "./SettingsService"

@@ -3,8 +3,8 @@ import * as path from "path"
 
 import delay from "delay"
 
-import { CommandExecutionStatus } from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+import { CommandExecutionStatus } from "@tne-code/types"
+import { TelemetryService } from "@tne-code/telemetry"
 
 import { Task } from "../task/Task"
 

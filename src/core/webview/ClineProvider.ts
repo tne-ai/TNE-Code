@@ -28,9 +28,9 @@ import {
 	openRouterDefaultModelId,
 	glamaDefaultModelId,
 	ORGANIZATION_ALLOW_ALL,
-} from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
-import { CloudService } from "@roo-code/cloud"
+} from "@tne-code/types"
+import { TelemetryService } from "@tne-code/telemetry"
+import { CloudService } from "@tne-code/cloud"
 
 import { t } from "../../i18n"
 import { setPanel } from "../../activate/registerCommands"
@@ -694,7 +694,7 @@ export class ClineProvider
 						window.AUDIO_BASE_URI = "${audioUri}"
 						window.MATERIAL_ICONS_BASE_URI = "${materialIconsUri}"
 					</script>
-					<title>Roo Code</title>
+					<title>Compass</title>
 				</head>
 				<body>
 					<div id="root"></div>
@@ -767,7 +767,7 @@ export class ClineProvider
 				window.AUDIO_BASE_URI = "${audioUri}"
 				window.MATERIAL_ICONS_BASE_URI = "${materialIconsUri}"
 			</script>
-            <title>Roo Code</title>
+            <title>Compass</title>
           </head>
           <body>
             <noscript>You need to enable JavaScript to run this app.</noscript>

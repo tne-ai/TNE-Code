@@ -333,7 +333,7 @@
 				"tne-code.tneCodeCloudEnabled": {
 					"type": "boolean",
 					"default": false,
-					"description": "%settings.rooCodeCloudEnabled.description%"
+					"description": "%settings.tneCodeCloudEnabled.description%"
 				}
 			}
 		}

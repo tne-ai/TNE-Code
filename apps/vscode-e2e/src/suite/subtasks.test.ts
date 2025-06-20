@@ -1,6 +1,6 @@
 import * as assert from "assert"
 
-import type { ClineMessage } from "@roo-code/types"
+import type { ClineMessage } from "@tne-code/types"
 
 import { sleep, waitFor, waitUntilCompleted } from "./utils"
 

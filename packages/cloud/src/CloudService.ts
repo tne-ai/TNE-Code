@@ -1,7 +1,7 @@
 import * as vscode from "vscode"
 
-import type { CloudUserInfo, TelemetryEvent, OrganizationAllowList } from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+import type { CloudUserInfo, TelemetryEvent, OrganizationAllowList } from "@tne-code/types"
+import { TelemetryService } from "@tne-code/telemetry"
 
 import { CloudServiceCallbacks } from "./types"
 import { AuthService } from "./AuthService"

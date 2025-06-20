@@ -1,5 +1,7 @@
 import React from "react"
-import type { HistoryItem } from "@roo-code/types"
+import type { HistoryItem } from "@tne-code/types"
+import prettyBytes from "pretty-bytes"
+import { vscode } from "@/utils/vscode"
 import { formatDate } from "@/utils/format"
 import { DeleteButton } from "./DeleteButton"
 import { cn } from "@/lib/utils"

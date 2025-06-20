@@ -9,7 +9,7 @@ import type {
 	ClineMessage,
 	OrganizationAllowList,
 	CloudUserInfo,
-} from "@roo-code/types"
+} from "@tne-code/types"
 
 import { GitCommit } from "../utils/git"
 

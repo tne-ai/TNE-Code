@@ -65,7 +65,7 @@ export default defineConfig(({ mode }) => {
 		...(gitSha ? { "process.env.PKG_SHA": JSON.stringify(gitSha) } : {}),
 	}
 
-	// TODO: We can use `@roo-code/build` to generate `define` once the
+	// TODO: We can use `@tne-code/build` to generate `define` once the
 	// monorepo is deployed.
 	if (mode === "nightly") {
 		outDir = "../apps/vscode-nightly/build/webview-ui/build"

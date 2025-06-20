@@ -6,8 +6,8 @@ import type {
 	ModeConfig,
 	InstallMarketplaceItemOptions,
 	MarketplaceItem,
-} from "@roo-code/types"
-import { marketplaceItemSchema } from "@roo-code/types"
+} from "@tne-code/types"
+import { marketplaceItemSchema } from "@tne-code/types"
 
 import { Mode } from "./modes"
 

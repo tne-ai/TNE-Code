@@ -15,8 +15,8 @@ import {
 	IpcMessageType,
 	TaskCommandName,
 	TaskEvent,
-} from "@roo-code/types"
-import { IpcServer } from "@roo-code/ipc"
+} from "@tne-code/types"
+import { IpcServer } from "@tne-code/ipc"
 
 import { Package } from "../shared/package"
 import { getWorkspacePath } from "../utils/path"

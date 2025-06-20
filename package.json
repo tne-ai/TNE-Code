@@ -46,6 +46,9 @@
 			"prettier --write"
 		]
 	},
+	"dependencies": {
+		"@graphai/service_agents": "^2.0.1"
+	},
 	"pnpm": {
 		"overrides": {
 			"tar-fs": ">=2.1.3",
