@@ -15,7 +15,7 @@ import {
 	deleteRun as _deleteRun,
 	createTask,
 	getExercisesForLanguage,
-} from "@roo-code/evals"
+} from "@tne-code/evals"
 
 import { CreateRun } from "@/lib/schemas"
 
@@ -62,7 +62,7 @@ export async function createRun({ suite, exercises = [], systemPrompt, ...values
 			"-e HOST_EXECUTION_METHOD=docker",
 		]
 
-		const cliCommand = `pnpm --filter @roo-code/evals cli --runId ${run.id}`
+		const cliCommand = `pnpm --filter @tne-code/evals cli --runId ${run.id}`
 
 		const command = isRunningInDocker
 			? `docker run ${dockerArgs.join(" ")} evals-runner sh -c "${cliCommand}"`

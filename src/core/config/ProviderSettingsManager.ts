@@ -5,8 +5,8 @@ import {
 	type ProviderSettingsEntry,
 	providerSettingsSchema,
 	providerSettingsSchemaDiscriminated,
-} from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+} from "@tne-code/types"
+import { TelemetryService } from "@tne-code/telemetry"
 
 import { Mode, modes } from "../../shared/modes"
 

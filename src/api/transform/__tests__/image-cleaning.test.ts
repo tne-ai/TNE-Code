@@ -1,4 +1,4 @@
-import type { ModelInfo } from "@roo-code/types"
+import type { ModelInfo } from "@tne-code/types"
 
 import { ApiHandler } from "../../index"
 import { ApiMessage } from "../../../core/task-persistence/apiMessages"

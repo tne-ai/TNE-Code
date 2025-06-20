@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-import type { ProviderSettings, PromptComponent, ModeConfig } from "@roo-code/types"
+import type { ProviderSettings, PromptComponent, ModeConfig } from "@tne-code/types"
 
 import { Mode } from "./modes"
 

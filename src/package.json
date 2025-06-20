@@ -3,7 +3,7 @@
 	"displayName": "%extension.displayName%",
 	"description": "%extension.description%",
 	"publisher": "tne-ai",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"icon": "assets/icons/icon.png",
 	"galleryBanner": {
 		"color": "#617A91",
@@ -333,7 +333,7 @@
 				"tne-code.tneCodeCloudEnabled": {
 					"type": "boolean",
 					"default": false,
-					"description": "%settings.rooCodeCloudEnabled.description%"
+					"description": "%settings.tneCodeCloudEnabled.description%"
 				}
 			}
 		}

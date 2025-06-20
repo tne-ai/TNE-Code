@@ -30,7 +30,7 @@ import {
 	glamaDefaultModelId,
 	unboundDefaultModelId,
 	litellmDefaultModelId,
-} from "@roo-code/types"
+} from "@tne-code/types"
 
 import type { RouterModels } from "@roo/api"
 

@@ -8,7 +8,7 @@ import {
 	type ExperimentId,
 	type OrganizationAllowList,
 	ORGANIZATION_ALLOW_ALL,
-} from "@roo-code/types"
+} from "@tne-code/types"
 
 import { ExtensionMessage, ExtensionState } from "@roo/ExtensionMessage"
 import { findLastIndex } from "@roo/array"

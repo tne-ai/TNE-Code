@@ -1,4 +1,4 @@
-import type { RooCodeAPI } from "@roo-code/types"
+import type { RooCodeAPI } from "@tne-code/types"
 
 type WaitForOptions = {
 	timeout?: number

@@ -1,6 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk"
 
-import { TelemetryService } from "@roo-code/telemetry"
+import { TelemetryService } from "@tne-code/telemetry"
 
 import { t } from "../../i18n"
 import { ApiHandler } from "../../api"
@@ -216,7 +216,7 @@ export function getMessagesSinceLastSummary(messages: ApiMessage[]): ApiMessage[
 	const messagesSinceSummary = messages.slice(lastSummaryIndex)
 
 	// Bedrock requires the first message to be a user message.
-	// See https://github.com/RooCodeInc/Roo-Code/issues/4147
+	// See https://github.com/tne-ai/TNE-Code/issues/4147
 	const userMessage: ApiMessage = {
 		role: "user",
 		content: "Please continue from the following summary:",

@@ -1,4 +1,4 @@
-import type { ClineMessage } from "@roo-code/types"
+import type { ClineMessage } from "@tne-code/types"
 
 /**
  * Combines API request start and finish messages in an array of ClineMessages.

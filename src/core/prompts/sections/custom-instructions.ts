@@ -2,7 +2,7 @@ import fs from "fs/promises"
 import path from "path"
 import { Dirent } from "fs"
 
-import { isLanguage } from "@roo-code/types"
+import { isLanguage } from "@tne-code/types"
 
 import { LANGUAGES } from "../../../shared/language"
 

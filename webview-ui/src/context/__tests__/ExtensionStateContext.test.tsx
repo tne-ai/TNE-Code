@@ -2,7 +2,7 @@
 
 import { render, screen, act } from "@testing-library/react"
 
-import { ProviderSettings, ExperimentId } from "@roo-code/types"
+import { ProviderSettings, ExperimentId } from "@tne-code/types"
 
 import { ExtensionState } from "@roo/ExtensionMessage"
 

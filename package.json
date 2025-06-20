@@ -45,5 +45,8 @@
 		"*.{js,jsx,ts,tsx,json,css,md}": [
 			"prettier --write"
 		]
+	},
+	"dependencies": {
+		"@graphai/service_agents": "^2.0.1"
 	}
 }

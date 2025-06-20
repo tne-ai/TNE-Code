@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 
-import { rooCodeSettingsSchema, getModelId } from "@roo-code/types"
+import { rooCodeSettingsSchema, getModelId } from "@tne-code/types"
 
 import { getRuns } from "@/db"
 import { getLanguageScores } from "@/lib/server"

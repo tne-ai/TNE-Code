@@ -10,7 +10,7 @@ import {
 	type OrganizationAllowList,
 	azureOpenAiDefaultApiVersion,
 	openAiModelInfoSaneDefaults,
-} from "@roo-code/types"
+} from "@tne-code/types"
 
 import { ExtensionMessage } from "@roo/ExtensionMessage"
 

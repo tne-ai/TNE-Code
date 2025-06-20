@@ -1,4 +1,4 @@
-import type { ClineMessage } from "@roo-code/types"
+import type { ClineMessage } from "@tne-code/types"
 
 export const COMMAND_OUTPUT_STRING = "Output:"
 

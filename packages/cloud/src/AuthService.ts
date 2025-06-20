@@ -5,7 +5,7 @@ import axios from "axios"
 import * as vscode from "vscode"
 import { z } from "zod"
 
-import type { CloudUserInfo } from "@roo-code/types"
+import type { CloudUserInfo } from "@tne-code/types"
 
 import { getClerkBaseUrl, getRooCodeApiUrl } from "./Config"
 import { RefreshTimer } from "./RefreshTimer"
@@ -170,8 +170,8 @@ export class AuthService extends EventEmitter<AuthServiceEvents> {
 			const state = crypto.randomBytes(16).toString("hex")
 			await this.context.globalState.update(AUTH_STATE_KEY, state)
 			const packageJSON = this.context.extension?.packageJSON
-			const publisher = packageJSON?.publisher ?? "RooVeterinaryInc"
-			const name = packageJSON?.name ?? "roo-cline"
+			const publisher = packageJSON?.publisher ?? "tne-ai"
+			const name = packageJSON?.name ?? "tne-code"
 			const params = new URLSearchParams({
 				state,
 				auth_redirect: `${vscode.env.uriScheme}://${publisher}.${name}`,

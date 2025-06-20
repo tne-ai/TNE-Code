@@ -8,7 +8,7 @@ import type {
 	ExperimentId,
 	ToolGroup,
 	PromptComponent,
-} from "@roo-code/types"
+} from "@tne-code/types"
 
 import { addCustomInstructions } from "../core/prompts/sections/custom-instructions"
 
