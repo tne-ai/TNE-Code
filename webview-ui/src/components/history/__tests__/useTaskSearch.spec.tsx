@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react"
 
-import type { HistoryItem } from "@roo-code/types"
+import type { HistoryItem } from "@tne-code/types"
 
 import { useTaskSearch } from "../useTaskSearch"
 

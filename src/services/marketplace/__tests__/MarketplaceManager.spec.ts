@@ -1,6 +1,6 @@
 // npx vitest services/marketplace/__tests__/MarketplaceManager.spec.ts
 
-import type { MarketplaceItem } from "@roo-code/types"
+import type { MarketplaceItem } from "@tne-code/types"
 
 import { MarketplaceManager } from "../MarketplaceManager"
 
@@ -8,7 +8,7 @@ import { MarketplaceManager } from "../MarketplaceManager"
 vi.mock("axios")
 
 // Mock the cloud config
-vi.mock("@roo-code/cloud", () => ({
+vi.mock("@tne-code/cloud", () => ({
 	getRooCodeApiUrl: () => "https://test.api.com",
 }))
 

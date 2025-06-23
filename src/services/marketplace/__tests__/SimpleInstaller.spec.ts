@@ -4,7 +4,7 @@ import { SimpleInstaller } from "../SimpleInstaller"
 import * as fs from "fs/promises"
 import * as yaml from "yaml"
 import * as vscode from "vscode"
-import type { MarketplaceItem } from "@roo-code/types"
+import type { MarketplaceItem } from "@tne-code/types"
 import * as path from "path"
 
 vi.mock("fs/promises")
