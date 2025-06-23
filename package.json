@@ -47,7 +47,8 @@
 		]
 	},
 	"dependencies": {
-		"@graphai/service_agents": "^2.0.1"
+		"@graphai/service_agents": "^2.0.1",
+		"@lmstudio/sdk": "^1.2.2"
 	},
 	"pnpm": {
 		"overrides": {
